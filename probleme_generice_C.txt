@@ -1,0 +1,131 @@
+1. Scrieti un program care genereaza random intre 10 si 20 fisiere, fiecare fisier avand inte 1000000 si 2000000 caractere random din spatiul 'a'-'z'
+
+2. Cititi si afisati continutul unui fisier text oarecare in formatul urmator:
+   - pe orice linie sunt maxim 2 cuvinte
+   - cuvintele sunt separate de cate 1 tab
+   
+3. a) numarati cate caractere alfa-numerice exista intr-un fisier
+   b) inversati case-ul caracterelor pentru un fisier dat
+
+4. implementati sqrt dupa algorimtul descris aici:  
+Find the square root of 152.2756.          
+       /-------------
+     \/  01 52.27 56   = 12.34 
+
+         01                   1*1 <= 1 < 2*2                 x = 1
+         01                     y = x*x = 1*1 = 1
+         --
+         00 52                22*2 <= 52 < 23*3              x = 2
+         00 44                  y = (20+x)*x = 22*2 = 44
+         -- --
+            08 27             243*3 <= 827 < 244*4           x = 3
+            07 29               y = (240+x)*x = 243*3 = 729
+            -- --
+               98 56          2464*4 <= 9856 < 2465*5        x = 4
+               98 56            y = (2460+x)*x = 2464*4 = 9856
+               -- --
+               00 00          Algorithm terminates: Answer is 12.34
+   astfel incat orice rezultat sa fie aliniat la 10 cifre si sa nu existe virgula
+   Exemplu:  sqrt(152)=1232882800
+   
+5. Dandu-se 2 matrici A si B in acelasi fisier, calculati matricea C = A x B
+---------------- Fisier -----------------
+7 12 3 9
+14 21 1 15
+22 11 3 6
+
+1 12 4
+3 6 3
+71 12 44
+21 2 19
+-------------------------------------------
+
+6. Rezolvati expresiile care se dau ca input intr-un fisier oarecare:
+41*9+12/2
+4+4+3-1-9-21+4*8
+45-8
+32+3*9/3+44/4+1
+55/2+9*7+5-1
+
+7. Dandu-se un numar oarecare, fie foarte mic, fie foarte mare, calculati recursiv cifra corespunzatoare sumei cifrelor numarului, pana cand obtineti o singura cifra. De exempliu daca numarul este 7968: -> 7+9+6+8=30 -> 3+0=3 -> 3
+1203400123841239468153471932401238749234541823413
+1209384719283740487546666768778901234123455126983
+2398461890101276340129341003241230120340234773435
+7771235612631291023912983904192394999923441221112
+2234012422234781111049857034593405030405034023664
+
+8. Scrieti un program care contine o functie ce utilizeaza o variabila statica, astfel incat o alta functie sa nu poata schimba valoarea variabilei statice intre 2 apeluri consecutive.
+
+9. Generati o animatie care simuleaza un ceas cu orar, minutar si secundar pe un cadran cerc, in mod text, intr-un fisier.
+   Programul la fiecare secunda va muta secundarul pe o noua pozitie, astfel incat cineva care a deschis fisierul in citire sa vada miscarea secundarului
+   Toata partea de grafica va fi inlocuita de caractere alese de voi
+
+10.Afisati in format hex aliniat la 16 bytes pe linie cu 1 spatiu intre bytes, primii 512 de bytes din fisierul "\\.\PhysicalDrive0"
+
+11.Convertiti un numar dat dintr-o baza specificata, in orice alta baza. Intervalul de baze acceptate este 2-36
+
+12.Ganditi-va la o metoda de a comprima/decomprima urmatorul text si implementati-o:
+    "un caricaturist care caricaturizeaza caricaturi caricaturistice nu poate caricaturiza caricatura sa"
+
+13.Dandu-se un fisier ffff mare, implementati un algoritm care cauta stringul "POO2022" case-sensitive.
+   Fisierul poate fi descarcat aici: https://drive.google.com/drive/folders/1L-5WVBhzPPSNuXeEhP5e42ck_AzoNL-R?usp=sharing
+   
+14.Implementati un algoritm care sa inmulteasca numerele de la punctul 7
+
+15.Afisati in format BCD (7 segmente) folosind caractere ascii, numerele de la punctul 7, utilizand pointeri la functii
+   De exemplu, numarul 45 in format BCD ASCII folsind ca si caracter plin '#' ar fi:           
+   #  # #### 
+   #  # #
+   #### ####
+      #    #
+      # ####
+
+16.Utilizati o structura arbore BST echilibrata fie AVL, fie RBTree, care are inserate in prealabil 2000000 de valori int random unice.
+   Care este timpul mediu de cautare a unei valori random? (se vor face 1000 de cautari si se va face media aritmetica a timpilor obtinuti)
+   Faceti acelasi lucru pentru 2000000 de valori int random scrise intr-un fisier text (ne-structurat) si faceti diferenta de timp.
+   Cum justificati diferenta?
+
+17.Dandu-se expresiile de mai jos, afisati toate cazurile de impartire la 0, folosind exceptii:
+   17+8/(4*2-7-1)-6/3+18*2+9/(3-3)
+   7/4+13/(3*3)-5/0
+   4/(1-1)+7/(2+3+1-2*3)+8/0
+   
+18.Construiti o structura de date pentru a descrie functiile de baza ale unei posibile stive/coada si ulterior implementati functionalitatile necesare pentru 1 stiva si o coada, folosind aceeasi structura. Stiva se va folosi pentru a valida paranteze deschise/inchise dintr-o expresie data, iar coada pentru a inversa continutul unui fisier text.
+
+19.Creati un algoritm care converteste o poza BMP in format ASCII, folosind setul de caractere: {'x','@','-','+','$','%','^','&','*',';','/',' ','?','#','~','.'}
+  Exemplu de rezultat pentru fisierul:  https://drive.google.com/file/d/16eeDAJbjx9nAUWK6CP6pczwSKIUdxUjf/view?usp=sharing
+                 ++++++                                              
+           ++---++--++-----++++                     +++              
+         +---+-++          ++++---++              +-+++              
+       ++--+++                    ++-+ +--++++  ++--+++              
+       ---+++                           +---++-----++++              
+      ++--+++                            +----++--++++++             
+      -+--+++                             +-----+-++++++++++         
+      -+--+++                            +-+++++--------+++++++      
+      +-+-+++                           ++++------++-----++          
+      +-+--+++                        +-+----------+++               
+       +-+-++++                      ++++++++ ++---+-+               
+       +--+-++++           +++                  +---++ ++            
+        +-----++         +-+++                    +-+  +-+           
+            +++-+      ++-++++                     ++   +-+          
+                      +---++++                           +-+         
+       ---++--+++   +----+++++                            +-+        
+        +----+----------++++++                             +++       
+         +------+-------+++++++                            +-++      
+          +-------++----+++++++++++                         +-++     
+           +---------+-+++++++++++++++++                    +-++     
+            +--------++--++++++++++++++++++                 +-++     
+           +--++--++----+--------------+                    +--++    
+          +-++-++--------++--------+                        +--++    
+         +-+++-----------+--+-+     +--++                   ++-++    
+        +-+---------------+---  ++++-------++              ++-++     
+       +------++++ ++------+-+  +----+++-------++++     ++++--++     
+      +++            ++-----++   ++-------+++----------------++      
+                       +----++       ++---------+++++++++++-+        
+                         +---+             ++------------+           
+                           +-+                                                                                
+
+20. Cititi primii 512 bytes din "\\.\PhysicalDrive0" si construiti o structura de date cu partitiile de pe disk, folosind informatii de aici:
+    https://en.wikipedia.org/wiki/Master_boot_record#PTE
+    Ce este important pentru structura de partitii, sunt cele 4 intrari care incep la 0x01BE, cu formatul "Partition entry" descrisa in sectiunea "Partition table entries"
+
