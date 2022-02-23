@@ -1,3 +1,5 @@
+Pentru urmatoarele probleme, vom folosi VisualStudio, aplicatiile se vor compila pentru arhitectura target x86, orice proiect trebuie sa aiba macar 1 header si 1 fisier sursa, iar fisierele sursa vor avea extensia cpp, chiar daca problemele sunt C-related.
+
 1. Scrieti un program care genereaza random intre 10 si 20 fisiere, fiecare fisier avand inte 1000000 si 2000000 caractere random din spatiul 'a'-'z'
 
 2. Cititi si afisati continutul unui fisier text oarecare in formatul urmator:
@@ -28,7 +30,7 @@ Find the square root of 152.2756.
    astfel incat orice rezultat sa fie aliniat la 10 cifre si sa nu existe virgula
    Exemplu:  sqrt(152)=1232882800
    
-5. Dandu-se 2 matrici A si B in acelasi fisier, calculati matricea C = A x B
+5. Dandu-se 2 matrici A si B in acelasi fisier (fara a preciza in mod explicit dimensiunile matricilor), calculati matricea C = A x B
 ---------------- Fisier -----------------
 7 12 3 9
 14 21 1 15
@@ -49,12 +51,13 @@ Find the square root of 152.2756.
 
 7. Dandu-se un numar oarecare, fie foarte mic, fie foarte mare, calculati recursiv cifra corespunzatoare sumei cifrelor numarului, pana cand obtineti o singura cifra. De exempliu daca numarul este 7968: -> 7+9+6+8=30 -> 3+0=3 -> 3
 1203400123841239468153471932401238749234541823413
-1209384719283740487546666768778901234123455126983
+7909384719283740487546666768778901234123455126983
 2398461890101276340129341003241230120340234773435
 7771235612631291023912983904192394999923441221112
 2234012422234781111049857034593405030405034023664
 
 8. Scrieti un program care contine o functie ce utilizeaza o variabila statica, astfel incat o alta functie sa nu poata schimba valoarea variabilei statice intre 2 apeluri consecutive.
+   Aceasta problema trebuie rezolvata dupa laboratorul 2 unde avem un exemplu de astfel de utilizare
 
 9. Generati o animatie care simuleaza un ceas cu orar, minutar si secundar pe un cadran cerc, in mod text, intr-un fisier.
    Programul la fiecare secunda va muta secundarul pe o noua pozitie, astfel incat cineva care a deschis fisierul in citire sa vada miscarea secundarului
@@ -91,8 +94,17 @@ Find the square root of 152.2756.
    4/(1-1)+7/(2+3+1-2*3)+8/0
    
 18.Construiti o structura de date pentru a descrie functiile de baza ale unei posibile stive/coada si ulterior implementati functionalitatile necesare pentru 1 stiva si o coada, folosind aceeasi structura. Stiva se va folosi pentru a valida paranteze deschise/inchise dintr-o expresie data, iar coada pentru a inversa continutul unui fisier text.
+   Pentru validarea parantezelor pe expresii, se vor folosi expresiile de la exercitiul 17 + 2 eronat2:  21*(9+4/(1+1)-15    120-((32+4*5)/6-9*2)*3))
+   Pentru inversarea textului dintr-un fisier oarecare, se poate folosi orice fisier text. Coada va avea o dimensiune maxima de 10000 elemente, indiferent de dimensiunea fisierului.
+   Functiile din cele 2 structuri de date se vor numi:
+   void push(int element); //insereaza element in locul specific structurii (stiva->varf, coada->dupa ultimul element)
+   void pop(int element);  //elimina elementul care poate fi eliminat conform structurii (stiva->varf, coada->primul element)
+   int top();              //intoarce elementul focus conform structurii (stiva->varf, coada->ultimul element)
+   Pentru a rezolva aceasta problema trebuie intai depasit laboratorul 2 care contine un exemplu de implementare polimorfism, in C
 
 19.Creati un algoritm care converteste o poza BMP in format ASCII, folosind setul de caractere: {'x','@','-','+','$','%','^','&','*',';','/',' ','?','#','~','.'}
+  Orice poza trebuie sa fie in format BMP, 24 bits per pixel
+  Informatii despre formatul BMP: https://en.wikipedia.org/wiki/BMP_file_format
   Exemplu de rezultat pentru fisierul:  https://drive.google.com/file/d/16eeDAJbjx9nAUWK6CP6pczwSKIUdxUjf/view?usp=sharing
                  ++++++                                              
            ++---++--++-----++++                     +++              
@@ -129,3 +141,15 @@ Find the square root of 152.2756.
     https://en.wikipedia.org/wiki/Master_boot_record#PTE
     Ce este important pentru structura de partitii, sunt cele 4 intrari care incep la 0x01BE, cu formatul "Partition entry" descrisa in sectiunea "Partition table entries"
 
+21. Interclasati 2 fisiere text date ca parametri aplicatiei voastre, caracter cu caracter si va produce un alt fisier rezultat dat tot ca parametru. 
+    Formatul parametrilor:  aplicatie.exe -f1:f1.txt -f2:f2.txt -out:f3.txt
+    Exemplu de interclasare: 
+    f1.txt:  1234567890-=
+    f2.txt:  abcdefghijkl
+    f3.txt:  1a2b3c4d5e6f7g8h9i0j-k=l
+    
+22. Identificati limitele prealocate (start;size) ale urmatoarelor spatii de memorie:
+    a) stiva
+    b) aplicatie
+    c) heap
+    Pentru aceasta problema este necesar laboratorul 2
