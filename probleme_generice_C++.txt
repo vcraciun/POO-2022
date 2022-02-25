@@ -1,0 +1,33 @@
+Probleme C++. 
+Lista de probleme nu contine probleme intr-o ordine a complexitatii si nici intr-o ordine incrementala a tehnologiilor C++, sunt pur si simplu aleatorii.
+Inainte sa rezolvati orice problema, aruncati o privire prin toate si incarcati sa rezolvati in ordinea simplu->complex.
+Structura proiectelor C se aplica si aici (surse + headere aferente).
+
+1. Folositi set<string> pentru a insera toate liniile din urmatorul fisier text (exceptand '\n'):   https://drive.google.com/file/d/1A-4POBRzfY0nUgnBgv_SrQ9RZepzTdxy/view?usp=sharing
+   Cate elemente are setul? Exista vre-o diferenta fata de numarul de linii din fisier?
+   Cautati in set elementul "POO2022" si afisati daca exista sau nu, folosind metode ale colectiei set
+   
+2. Se da un fisier cu o serie de elemente de tip Element, unde structura Element are formatul:
+   struct Data{
+       string text;
+	   double valoare;
+   };
+   
+   struct Element{
+       int key;
+	   Content Data[20];
+   };
+   Scrieti un algoritm care incarca datele din fisier, fara a folosi sub nici o forma "struct" sau array-uri, ci doar elemente STL precum map, set, vector, pair, ......
+   Dupa incarcarea continutului din fisier, adaugati 100 de elemente Element, generate total aleatoriu
+   Generati 1000 de elemente key si verificati daca exista in structura voastra, dupa care in caz afirmativ scrieti intr-un fisier text continutul din Data
+   Fisierul se gaseste aici:  https://drive.google.com/file/d/1RApuM7tKyi3yiAOZvQur8ji26VheAkdC/view?usp=sharing
+   Datele in fisier sunt scrise in felul urmator:
+   Offset                                  Tip           Size          Comment
+   -----------------------------------------------------------------
+     0                                    int          sizeof(int)      cheia pentru Element 
+	 4                                    string1       variabil        primul element text din Data[0] care include la final un 0 (size(string1) + 1)
+	 4+size(string1) + 1                  double      sizeof(double)    primul element valoare din Data[0]
+     4+size(string1) + 1 + sizeof(double) string2       variabil        al 2-lea element text din Data[0] care include la final un 0 (size(string2) + 1)
+	 ...............
+   
+   
