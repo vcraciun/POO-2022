@@ -71,12 +71,12 @@ Find the square root of 152.2756.
     "un caricaturist care caricaturizeaza caricaturi caricaturistice nu poate caricaturiza caricatura sa"
 
 13.Dandu-se un fisier ffff mare, implementati un algoritm care cauta stringul "POO2022" case-sensitive.
-   Fisierul poate fi descarcat aici: https://drive.google.com/drive/folders/1L-5WVBhzPPSNuXeEhP5e42ck_AzoNL-R?usp=sharing
+   Fisierul poate fi descarcat aici: https://drive.google.com/file/d/1ktIYkwymDd3Q4V1x7SLAyqX0aI5jk-AQ/view?usp=sharing
    
 14.Implementati un algoritm care sa inmulteasca numerele de la punctul 7
 
 15.Afisati in format BCD (7 segmente) folosind caractere ascii, numerele de la punctul 7, utilizand pointeri la functii
-   De exemplu, numarul 45 in format BCD ASCII folsind ca si caracter plin '#' ar fi:           
+   De exemplu, numarul 45 in format BCD ASCII folsind ca si caracter plin '#' pe o matrice 4x5 ar fi:           
    #  # #### 
    #  # #
    #### ####
@@ -135,7 +135,8 @@ Find the square root of 152.2756.
       +++            ++-----++   ++-------+++----------------++      
                        +----++       ++---------+++++++++++-+        
                          +---+             ++------------+           
-                           +-+                                                                                
+                           +-+                  
+    Alte poze cu care puteti face teste se gasesc aici:  https://drive.google.com/file/d/12iTL8ivo9_Qwch30F1I7gNoBXKxSXDw_/view?usp=sharing						   
 
 20. Cititi primii 512 bytes din "\\.\PhysicalDrive0" si construiti o structura de date cu partitiile de pe disk, folosind informatii de aici:
     https://en.wikipedia.org/wiki/Master_boot_record#PTE
@@ -153,3 +154,128 @@ Find the square root of 152.2756.
     b) aplicatie
     c) heap
     Pentru aceasta problema este necesar laboratorul 2
+
+23. Scrieti 1000 de structuri populate cu date random, in formatul descris mai jos, intr-un fisier cu numele "structuri.bin". Ce dimensiune are fisierul? Cum raportati dimensiunea fisierului la dimensiunea structurii?
+    struct Data{
+		double nr;
+		char p;
+	};
+
+24. Se da urmatorul sir de caractere:  "a6oQv-{+8ioErp.,?99yXZUpoemn73+u"
+    Afisati valoarea celui de-al 3-lea element de tip short, dat fiind ca primul element short incepe la '{' (caracterul cu index 6)
+
+25. Alocati memorie pana nu se mai poate aloca cu o aplicatie compilata pentru x86 / debug /release, cu granularitati diferite. Cata memorie ati putut aloca maxim? Cum motivati? Daca rulati de multiple ori, obtineti aceeasi valoare? Folosind aceeasi arhitectura (x86) schimbati din project->properties->linker->System->Enable Large Address->Yes. Cum se schimba lucrurile cu aceasta optiune?
+
+26. Fie 2 matrici patratice a caror elemente sunt multimi de numere. Fisierul de intrare in care se gasesc aceste matrici are forma:
+A:
+{4,8,2} {16,1,2,4} {32,256} {1,2}
+{1,8} {2,4,8} {2} {8,256}
+{16,64} {1024,256,4} {8,16,512} {4,8,128}
+{4,8,256} {64,1,2048} {32,64,2,8} {256,1,8,2,4}
+B:
+{4,2} {32,1,8} {16,1} {2,4,128}
+{1,2,4} {2,128,512} {4,8} {16,64,1}
+{32,64,128} {1,4,32} {8} {4,2,128,512}
+{8,256,16,1} {1,16,32,1024} {1,4,16,64} {1024}
+
+Calculeaza matricea C = A & B, a carei componente vor fi intersectiile elementelor (multimile) de pe aceleasi pozitii (& este o functie/operator care face intersectie)
+Matricea C se va scrie similar ca si A sau B, intr-un alt fisier
+Specificatii:
+1. Matricile se citesc dintr-un fisier, succesiv, cu 1 rand liber intre matrici (numele matricilor nu sunt importante, iar dimensiunea matricilor trebuie dedusa din fisiere, nu exista un camp special pentru asta)
+2. Dimensiunea NxN a matricilor este aceeasi la toate matricile implicate si NU poate depasi 2001x2001 (N max = 2001)
+3. Orice element din matrice poate avea
+   minim - nici un element
+   maxim - 32 de elemente separate prin virgula
+4. Orice element dintr-o multime poate fi
+   minim - 1
+   maxim - 2147483648
+5. toate numerele (daca multimea nu este vida) sunt > 0
+6. matricile de intrare se citesc din fisierul "matrici.txt"
+7. rexultatul se va scrie in fisierul "result.txt"
+Exemplu de solutie pentru cazul dat mai sus:
+{2,4} {1} {} {2} 
+{1} {2} {} {} 
+{64} {4} {8} {4,128} 
+{8,256} {1} {64} {}  
+
+Restrictii: Rezolvarea intersectiei pentru N=10, nu trebuie sa depaseasca 0.01 secunde
+            Rezolvarea intersectiei pentru N=2001, nu trebuie sa depaseasca 10s secunde
+			Aplicatia trebuie sa fie compilata pentru arhitectura x86
+Seturile de date pentru teste se gasesc aici:  https://drive.google.com/file/d/1COrDIH2nSLEkOL7gUzrnI2NzOb-4F_1R/view?usp=sharing
+			
+27. Labirinte
+Descriere labirint:
+Un labirint este format dintr-o matrice NxN, unde N este impar
+O matrice contine urmatoarele caractere:
+'#' - zid
+'.' - spatiu liber
+'S' - pozitia de start
+'X' - pozitia destiantie
+Solutia unui labirint este data de o insiruire de caractere "UDLR":
+U: UP
+D: DOWN
+L: LEFT
+R: RIGHT
+De exemplu solutia urmatorului labirint este: "DDDLL" deorece S poate ajunge la X doar prin acesti pasi
+#######
+#..#..#
+#.#S.##
+#.#...#
+#.#.###
+#X....#
+#######
+
+Este garantat faptul ca orice labirint are fie o solutie unica, fie mai multe solutii astfel incat 2 solutii nu au aceeasi dimensiune.
+Astfel ca urmatorul labirint este invalid deoarece are 2 solutii identice ca dimensiune: "LDDR" si "RDDL"
+#####
+#.S.#
+#.#.#
+#.X.#
+#####
+
+Rezolvrea unei provocari presupune de fapt rezolvarea a 8 labirinte diferite, toate avand aceleasi dimensiuni
+Labirintele se afla in fisiere cu numele "in_k.bin" unde k este indexul labirintului 0<=k<=7
+Rezolvarea labirintului k va produce fisierul "out_k.bin" care va contine secventa de pasi pentru ca S sa ajunga peste X
+Implementarea se face strict x86, fara a customiza partea de linkare, este permisa folosirea optimizarilor de compilare
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+Sub-probleme de rezolvat (nu este important timpul, puteti rezolva 1 labirint si in 7 zile de executie :O ):
+Pentru primele 3 probleme, solutia este garantat unica, pentru problema 4, solutia este multipla asa cum s-a descris mai sus.
+
+   1. Sa se rezolve corect labirinte cu dimensiuni impare intre N=7 si N=21. Setul de date se gaseste aici: https://drive.google.com/file/d/1vt017kCmNwH0uF_Lyvq94dfxEYy_Igss/view?usp=sharing
+   2. Sa se rezolve corect labirinte cu dimensiuni impare cu dimensiuni de pana la N=101. Setul de date se gaseste aici:  https://drive.google.com/file/d/1E7zMH6NjM79lRCuom_d1m9FGbcKV1Ocf/view?usp=sharing
+   3. Sa se rezolve corect o serie de labirinte date (N=2401 maxim). Setul de date se gaseste aici:  https://drive.google.com/file/d/1y5O0hLb5_MAyhiAplDhtKf7bEFoZz1j9/view?usp=sharing
+      - seriile pentru problema 3 sunt in folderul proiectului (301,501,701,1001,1501,2001,2401)   
+   4. Sa se rezolve urmatoarea provocare criptografica. Setul de date se gaseste aici:  https://drive.google.com/file/d/1z7V6QggGHK36LZZw8TX7HLFxp1Z7oK_v/view?usp=sharing
+      - Se dau 8 serii a cate 8 labirinte
+        - in orice serie, labirintele au N acelasi
+        - intre serii, N este diferit, iar o serie cu index mai mare, are N mai mare
+      - in toate seriile, doar primul labirint din prima serie este plain-text, celelalte sunt criptate
+      - fata de problemele 1,2,3 care aveau soltuie unica, de data asta este garantat faptul ca labirintele au solutie multipla si nu exista 2 solutii cu aceeasi dimensiune
+      - cheia de criptare a labirintului k, k>1 este CRC32(Solutie(k-1)) unde Solutie(k-1) se refera la continutul fisierului out_k-1.bin. Algoritmul CRC32 este CRC32(-1) - se initializeaza cu -1, nu cu 0
+      - labirintul in_0.bin din seria 1 se decripteaza cu cheia obtinuta pentru out_7.bin din seria 0  
+      - cheia obtinuta pentru out_7.bin din ultima serie, este parola de dezarhivare a unei carti arhivate zip, cu parola
+      - algoritmul de criptare este RC4, iar cheia de criptare este valoarea hex CRC cu size 8, in format ASCII
+      - in caz ca primele cifre ale hash-ului incep cu 0, dimensiunea finala tot 8 va fi: 0x0007FA14 = "0007FA14"
+      - deoarece labirintele au solutie multipla, solutia acceptata este cea cu dimensiunea cea mai mica:
+        intre solutiile "LDDDR", "LLDDDRR" si "RURDDDDDLUL", solutia acceptata este "LDDDR" pentru ca este cea mai mica
+
+28. Prin research propriu, identificati o metoda a compilerului (fara a utiliza librarii din afara sistemului de opeare) de a face inmultiri cu numere pe 128 biti si apoi implementati un algoritm propriu care sa faca acelasi lucru.
+    Verificati diferenta de timp intre mecanismul compilerului si algoritmul vostru, procesand numerele din urmatorul fisier:  https://drive.google.com/file/d/1KmvmfQv8x3l55dWfoK8VBsvvcl2Bnytu/view?usp=sharing
+	Fisierul contine in format hex cele 2 numere pe 128 biti ce trebuie inmultite, sub forma a 2 array-uri de 16 bytes separati cu 1 spatiu, nuymerele fiind separate cu 2 linute.
+	Ex: 17 8A B9 7C 99 00 31 3D 10 70 4A BC 88 2E 91 06 -- 77 32 91 5C 18 66 30 31 6E F1 FF 0E 78 19 42 33
+	Ordinea bytes-ilor este in format litle-endian:
+	primul numar: hex: 0x06912E88BC4A70103D3100997CB98A17   dec:  8729194843342086722016826853154195991
+	numarul 2:    hex: 0x178AB97C9900313D10704ABC882E9106   dec:  31292542986951137642390436220205175046
+	rezultat inmultire: hex:  9a9a337b805091f0bf1b7eb10642c8eabda8f846642137ea8ffcd50bb2438a      dec:  273158704876754450454914532521854371372249847453151404244235141427546440586
+    Verificarea o puteti face folosind acest calculator de numere mari:  https://defuse.ca/big-number-calculator.htm
+   
+29. Continutul unui fisier text a fost criptat folosind operatii XOR pe biti. Cheia de criptare este un numar pe 32 biti, iar operatia de criptare a aplicat XOR din sizeof(int) in sizeof(int) pe tot continutul fisierului, pana la ultimele cateva caractere, care erau mai putine decat sizeof(int), acestea nefiind criptate. 
+    Fisierul se gaseste aici: https://drive.google.com/file/d/1rwlP4RqoITCxmfXD38RnILaalUyY_VNx/view?usp=sharing
+	Identificati si implementati o metoda de a descoperi cheia de criptare si odata cu aceasta, textul initial care a fost criptat.
+	
+30. Implementati un algoritm care sa sorteze descrescator continutul fisierului aflat aici (acelasi cu cel folosit la problema 13):  https://drive.google.com/file/d/1ktIYkwymDd3Q4V1x7SLAyqX0aI5jk-AQ/view?usp=sharing
+    Prezentati ca si comentariu in implementarea voastra, motivatia algoritmului ales.
+	Cat timp a luat sortarea?
+
+	

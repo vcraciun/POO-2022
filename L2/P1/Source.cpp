@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Header1.h"
 #include "Header2.h"
+#include <intrin.h>
 
 int main();
 
@@ -8,49 +9,29 @@ void hackprotection()
 {
 	unsigned char* main_addr = (unsigned char*)&main;
 	unsigned long oldp;
-	
+
 	//METHOD 1
-	/*for (int i = 0; ; i++)
+	MEMORY_BASIC_INFORMATION pmem;
+	for (int i = 0; ; i++)
 	{
 		__try {
 			int my_static_var = *(int*)(main_addr + i);
 			if (my_static_var == 1010101)
 			{
-				VirtualProtect(main_addr + i, sizeof(size_t), PAGE_READWRITE, &oldp);
-				*(int*)(main_addr + i) = 100;
-				VirtualProtect(main_addr + i, sizeof(size_t), oldp, &oldp);
-				printf("HACKED\n");
-				break;
+				VirtualQuery(main_addr + i, &pmem, sizeof(pmem));
+				if (pmem.Protect != PAGE_EXECUTE_READ && pmem.Protect != PAGE_EXECUTE_READWRITE)
+				{
+					VirtualProtect(main_addr + i, sizeof(size_t), PAGE_READWRITE, &oldp);
+					*(int*)(main_addr + i) = 100;
+					VirtualProtect(main_addr + i, sizeof(size_t), oldp, &oldp);
+					printf("HACKED\n");
+					break;
+				}
 			}
 		}
 		__except(EXCEPTION_EXECUTE_HANDLER) {
 			printf("Oooops, am gresit ceva?\n");
 		}
-	}*/
-
-	//METHOD 2 --- based on MZPE header and .data section location
-	char* scan = (char*)main_addr;
-	__try {
-		while ((*(int*)scan != 0x00905A4D) || ((int)scan & 0x0000FFFF) != 0)
-			scan--;
-	}
-	__except (EXCEPTION_EXECUTE_HANDLER) {
-		printf("Oooops, am gresit ceva?\n");
-	}
-	int* imntho = (int*)(*(int*)(scan + 0x3C) + scan);
-	int* sec = (int*)((int)imntho + 0xF8);
-	for (int i = 0; i < (imntho[1] >> 16); i++)
-	{
-		if (sec[9] == 0xC0000040)
-		{
-			int* start = (int*)(sec[3] + scan);
-			VirtualProtect(start, 32, PAGE_READWRITE, &oldp);
-			start[6] = 100;
-			VirtualProtect(start, 32, oldp, &oldp);
-			printf("HACKED\n");
-			break;
-		}
-		sec += 10;
 	}
 }
 
