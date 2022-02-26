@@ -5,6 +5,11 @@ C
 4. etichete statice
 
 C++
-clase/metode
+1. clase
+2. metode/membri
+3. tipuri membri
+4. modificatori acces
+5. suprascriere/supraincarcare
+
 
 
