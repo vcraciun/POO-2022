@@ -17,23 +17,6 @@ int _add(int a, int b) { return a + b; }
 int _sub(int a, int b) { return a - b; }
 int _div(int a, int b) { return a / b; }
 
-void Update(int result, int& first, int* second, int i)
-{
-    switch (i)
-    {
-    case 0: first = result; second[0] = result; break;
-    case 1: first = 777; second[0] = 3 + result; break;
-    case 2: first = 329; second[0] = result - 1; break;
-    case 3: first = result * 2; second[0] = 2; break;
-    case 4: first = result; second[0] = result; break;
-    case 5: first = 451; second[0] = result / 2; break;
-    case 6: first = result; second[0] = 10; break;
-    case 7: first = 100; second[0] = result; break;
-    case 8: first = result * result; second[0] = 55; break;
-    case 9: first = result + result; second[0] = 7; break;
-    }
-}
-
 void optimizare_globala()
 {
     int result = 0;
