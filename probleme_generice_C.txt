@@ -280,4 +280,20 @@ Pentru primele 3 probleme, solutia este garantat unica, pentru problema 4, solut
     Prezentati ca si comentariu in implementarea voastra, motivatia algoritmului ales.
 	Cat timp a luat sortarea?
 
+31. Fisierul din locatia:  https://drive.google.com/file/d/1TtuGBl8A-8H5d1rCvkGNjnUQ6-JKa_CV/view?usp=sharing
+    Contine structura urmatoare pentru a descrie articole vestimentare (descrierea este informala - scris):
+	In fisier se afla un array de structuri, iar o structura contine in ordine urmatoarele elemente:
+	- indexul unei culori intre 0 si 7 (char)
+	- pretul articolului (double)
+	- numele articolului ca array de caractere ce se termina cu 0 (fiecare nume de articol are un numar variabil de caractere)
+	Incarcati fisierul, si structurati informatia din el, construind un fisier text cu aceste informatii. Totodata afisat cate articole exista in fisier
+	semnificatia codurilor de culoare este urmatoarea:
+	0 - "rosu" 
+	1 - "verde"
+	2 - "albastru"
+	3 - "alb"
+	4 - "negru"
+	5 - "galben"
+	6 - "violet"
+	7 - "roz"
 	
