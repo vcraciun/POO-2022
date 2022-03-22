@@ -1,10 +1,8 @@
 C.
-1. array-uri multidimensionale
-2. cum sunt structurate aplicatiile executabile
-3. sectiuni / zone de memorie / drepturi de acces
+1. callbacks
+2. parametri aplicatie
 
 C++
-1. design patterns
-2. composite
-3. visitor
-4. expresii lambda
+1. operatori
+2. STL
+3. lucru cu fisiere FSTREAM
