@@ -11,8 +11,8 @@ public:
 	A(int xx);
 	~A();
 
-	virtual void Chenge(int xx) = 0;
-	virtual int Get();
+	virtual void Change(int xx) = 0;
+	virtual void Print();
 	void Specific();
 };
 
@@ -25,8 +25,8 @@ public:
 	B(int yy);
 	~B();
 
-	virtual void Chenge(int yy);
-	virtual int Get();
+	virtual void Change(int yy);
+	virtual void Print();
 	void Specific();
 };
 
@@ -39,8 +39,8 @@ public:
 	C(int zz);
 	~C();
 
-	virtual void Chenge(int yy);
-	virtual int Get();
+	virtual void Change(int yy);
+	virtual void Print();
 	void Specific();
 };
 
@@ -53,7 +53,7 @@ public:
 	D(int qq);
 	~D();
 
-	virtual void Chenge(int yy);
-	virtual int Get();
+	virtual void Change(int yy);
+	virtual void Print();
 	void Specific();
 };

@@ -18,16 +18,15 @@ A::~A()
 	x = 0;
 }
 
-void A::Chenge(int xx)
+void A::Change(int xx)
 {
 	cout << "A::Change(int)" << endl;
 	x = xx;
 }
 
-int A::Get()
+void A::Print()
 {
-	cout << "A::Get()" << endl;
-	return x;
+	cout << "A::Print()" << x << endl;
 }
 
 void A::Specific()
@@ -54,16 +53,15 @@ B::~B()
 	y = 0;
 }
 
-void B::Chenge(int yy)
+void B::Change(int yy)
 {
 	cout << "B::Change(int)" << endl;
 	y = yy;
 }
 
-int B::Get()
+void B::Print()
 {
-	cout << "B::Get()" << endl;
-	return y;
+	cout << "B::Get()" << y << endl;
 }
 
 void B::Specific()
@@ -90,16 +88,15 @@ C::~C()
 	z = 0;
 }
 
-void C::Chenge(int zz)
+void C::Change(int zz)
 {
 	cout << "C::Change(int)" << endl;
 	z = zz;
 }
 
-int C::Get()
+void C::Print()
 {
-	cout << "C::Get()" << endl;
-	return z;
+	cout << "C::Get()" << z << endl;
 }
 
 void C::Specific()
@@ -126,16 +123,15 @@ D::~D()
 	q = 0;
 }
 
-void D::Chenge(int qq)
+void D::Change(int qq)
 {
 	cout << "D::Change(int)" << endl;
 	q = qq;
 }
 
-int D::Get()
+void D::Print()
 {
-	cout << "D::Get()" << endl;
-	return q;
+	cout << "D::Print()" << q << endl;
 }
 
 void D::Specific()
