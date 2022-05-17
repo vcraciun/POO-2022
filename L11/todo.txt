@@ -1,0 +1,7 @@
+1. sortare folosind sort si functie callback / lambda inline / separate asc/desc (vector<string>) by size/lexicografic
+2. min_max pe vector de numere + generic cu parametru
+3. un fisier contine o serie de numee intregi separate cu spatiu (serie numerica)
+   a) filtrati seria aplicand un filtru de blurare median, de dimensiune 3
+   b) faceti downscale la 25% eliminand jumatate din puncte, fara a pierde forma generala a graficului
+   c) faceti upscale 200%, adaugand puncte
+   totul are loc in main folosind functii lambda
